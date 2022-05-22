@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "6f8fc659-6dff-4014-a4da-b3551eb70fbe",
+		"name": "proyect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetAllinvoice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/V1/invoice/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"V1",
+								"invoice/",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetinvoiceById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/V1/invoice/628a54c33b66cb6b58b1851f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"V1",
+								"invoice/",
+								"628a54c33b66cb6b58b1851f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insertinvoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Migue Antonio\",\r\n  \"mount\" : \"10\",\r\n    \"date\": \"52525\",\r\n    \"idInvoice\" : \"05408734-7\",\r\n    \"DocumentType\": \"nic\",\r\n    \"status\": \"payable\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/invoice/c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"V1",
+								"invoice/c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updateinvoice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"payable\",\r\n    \"name\":\"Marvin jose\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/V1/invoice/u/628a54c33b66cb6b58b1851f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"V1",
+								"invoice",
+								"628a54c33b66cb6b58b1851f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

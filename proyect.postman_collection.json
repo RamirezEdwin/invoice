@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "6f8fc659-6dff-4014-a4da-b3551eb70fbe",
+		"name": "proyectinvoice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "invoice",
+			"item": [
+				{
+					"name": "Getinvoiceid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/invoice/6289498013e8c0352a71b9c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"invoice",
+								"6289498013e8c0352a71b9c6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/v1/invoice/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insertinvoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"caes\",\r\n    \"mount\": \"5\",\r\n    \"date\":\"10-05-2022\",\r\n  \"idInvoice\":\"12563\",\n    \"DocumentType\":\"12563\",\n  \"status\":\"payable\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/invoice/c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"invoice/c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updateinvoice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"caes\",\r\n    \"mount\": \"5\",\r\n    \"date\":\"10-05-2022\",\r\n  \"idInvoice\":\"12563\",\n    \"DocumentType\":\"12563\",\n  \"status\":\"payable\"\n }",
+              "options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/invoce/6289498013e8c0352a71b9c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"invoce/u",
+								"626d6e3f5ebe60ada3bd1093"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleteinvoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/v1/invoce/626d6e3f5ebe60ada3bd1093",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"v1",
+								"invoce",
+								"626d6e3f5ebe60ada3bd1093"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+
+
+	]
+}
