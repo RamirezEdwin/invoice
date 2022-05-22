@@ -9,24 +9,20 @@ const schema = new Schema(
     name: {
       type: String,
     },
-    amount: {
+    total: {
       type: String,
     },
 
     date: {
       type: Date,
-      default: Date.now
     },
-    idInvoice: {
-      type: String,
-    },
-    typeDocument: {
+    DocumentType: {
       type: String,
 
     },
     status: {
       type: String,
-      enum: ['pay', 'overdue', 'payable'],
+      enum: ['Slope', 'overdue', 'paid out'],
       default: 'payable',
     },
   },

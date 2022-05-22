@@ -1,10 +1,9 @@
-import invoiceModule from './invoice.model';
+import InvoiceModel from './invoice.model';
 
-export const getAllinvoice = async (req, res) => {
+export const getAllInvoices = async (req, res) => {
   const { offset, limit } = req.params;
-  const { status = 'payable' } = req.query;
   try {
-    const data = await invoiceModule.find({ status, }).skip(offset).limit(limit);
+    const data = await InvoiceModel.find().skip(offset).limit(limit);
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
@@ -15,18 +14,17 @@ export const getAllinvoice = async (req, res) => {
   }
 };
 
-export const createinvoice = async (req, res) => {
+export const createInvoice = async (req, res) => {
   const {
     name,
-    mount,
+    total,
     date,
-    idInvoice,
     DocumentType,
     status,
   } = req.body;
   if (
-    !name || !mount || !date
-    || !idInvoice || !DocumentType
+    !name || !total || !date
+    || !DocumentType
   ) {
     return res.status(400).json({
       message:
@@ -34,13 +32,11 @@ export const createinvoice = async (req, res) => {
       code: 400,
     });
   }
-
   try {
-    const data = await invoiceModule.create({
+    const data = await InvoiceModel.create({
       name,
-      mount,
+      total,
       date,
-      idInvoice,
       DocumentType,
       status,
     });
@@ -54,10 +50,9 @@ export const createinvoice = async (req, res) => {
   }
 };
 
-
-export const Updateinvoice = async (req, res) => {
+export const updateInvoice = async (req, res) => {
   const { body, params } = req;
-  const { idinvoice } = params;
+  const { idInvoice } = params;
 
   if (!body) {
     return res.status(400).json({
@@ -65,15 +60,10 @@ export const Updateinvoice = async (req, res) => {
     });
   }
   try {
-    const data = await Updateinvoice.findOneAndUpdate(
-      { _id: idinvoice },
+    const data = await InvoiceModel.findOneAndUpdate(
+      { _id: idInvoice },
       {
-        name: body.name,
-        mount: body.mount,
-        date: body.date,
-        idInvoice: body.idInvoice,
-        DocumentType: body.DocumentType,
-        status: body.status
+        status: 'paid out'
       }
     );
     return res.status(200).json(Object.assign(data, body));
@@ -85,5 +75,16 @@ export const Updateinvoice = async (req, res) => {
   }
 };
 
-
-
+export const GetInvoiceSlope = async (req, res) => {
+  const { document } = req.params;
+  if (!document) {
+    console.log(document);
+    res.status(300)
+      .json({
+        message: 'Debe de agreagar el numero de documento',
+        code: 400
+      });
+  }
+  const data = await InvoiceModel.find({ DocumentType: `${document}`, status: 'Slope', });
+  res.status(200).json(data);
+};
